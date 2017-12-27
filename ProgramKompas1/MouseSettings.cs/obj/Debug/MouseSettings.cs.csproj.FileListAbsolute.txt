@@ -1,0 +1,9 @@
+c:\users\работа\source\repos\ProgramKompas\MouseSettings.cs\bin\Debug\MouseSettings.cs.dll
+c:\users\работа\source\repos\ProgramKompas\MouseSettings.cs\bin\Debug\MouseSettings.cs.pdb
+c:\users\работа\source\repos\ProgramKompas\MouseSettings.cs\obj\Debug\MouseSettings.cs.csproj.CoreCompileInputs.cache
+c:\users\работа\source\repos\ProgramKompas\MouseSettings.cs\obj\Debug\MouseSettings.cs.dll
+c:\users\работа\source\repos\ProgramKompas\MouseSettings.cs\obj\Debug\MouseSettings.cs.pdb
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas\MouseSettings.cs\bin\Debug\MouseSettings.cs.dll
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas\MouseSettings.cs\bin\Debug\MouseSettings.cs.pdb
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas\MouseSettings.cs\obj\Debug\MouseSettings.cs.dll
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas\MouseSettings.cs\obj\Debug\MouseSettings.cs.pdb

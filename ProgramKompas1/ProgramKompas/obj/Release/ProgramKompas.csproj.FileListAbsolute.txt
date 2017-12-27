@@ -1,0 +1,16 @@
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\bin\Release\NUnit3.TestAdapter.dll
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\bin\Release\nunit.engine.dll
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\bin\Release\nunit.engine.api.dll
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\bin\Release\Mono.Cecil.dll
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\bin\Release\Mono.Cecil.Pdb.dll
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\bin\Release\Mono.Cecil.Mdb.dll
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\bin\Release\Mono.Cecil.Rocks.dll
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\bin\Release\ProgramKompas.dll
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\bin\Release\ProgramKompas.pdb
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\obj\Release\ProgramKompas.csprojResolveAssemblyReference.cache
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\obj\Release\Interop.Kompas6API5.dll
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\obj\Release\Interop.Kompas6Constants.dll
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\obj\Release\Interop.Kompas6Constants3D.dll
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\obj\Release\ProgramKompas.csproj.ResolveComReference.cache
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\obj\Release\ProgramKompas.dll
+C:\Users\Виктория\Desktop\орсапр\ProgramKompas1\ProgramKompas\obj\Release\ProgramKompas.pdb
