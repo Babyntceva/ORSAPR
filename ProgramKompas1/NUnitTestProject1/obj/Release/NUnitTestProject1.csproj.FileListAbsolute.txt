@@ -1,0 +1,16 @@
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\bin\Release\NUnit3.TestAdapter.dll
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\bin\Release\nunit.engine.dll
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\bin\Release\nunit.engine.api.dll
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\bin\Release\Mono.Cecil.dll
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\bin\Release\Mono.Cecil.Pdb.dll
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\bin\Release\Mono.Cecil.Mdb.dll
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\bin\Release\Mono.Cecil.Rocks.dll
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\bin\Release\NUnitTestProject1.dll
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\bin\Release\NUnitTestProject1.pdb
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\bin\Release\nunit.framework.dll
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\bin\Release\ProgramKompas.dll
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\bin\Release\ProgramKompas.pdb
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\bin\Release\nunit.framework.xml
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\obj\Release\NUnitTestProject1.csprojResolveAssemblyReference.cache
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\obj\Release\NUnitTestProject1.dll
+C:\Users\Виктория\Desktop\ORSAPR\ProgramKompas1\NUnitTestProject1\obj\Release\NUnitTestProject1.pdb

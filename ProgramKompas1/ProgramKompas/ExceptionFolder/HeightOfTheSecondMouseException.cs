@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProgramKompas.ExceptionFolder
 {
-   public class ExceptionHeightOfTheSecondMouse : Exception
+    /// <summary>
+    /// Перехват исключения высоты второго уровня компьютерной мыши если не больше 20% 
+    /// или меньшк 10% от длины мыши
+    /// </summary>
+   public class ExceptionHeightOfTheSecondMouse : ApplicationException
     {
     }
 }

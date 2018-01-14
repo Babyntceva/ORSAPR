@@ -7,44 +7,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProgramKompas.ExceptionFolder;
 using ProgramKompas;
-using MouseSettings.cs;
 
 namespace MouseMainWindowFormProject
 {
+    /// <summary>
+    /// Форма для графического интерфейса
+    /// </summary>
     public partial class MouseForm : Form
     {
-        ProgramKompas.ProgramKompas programKompasClass = new ProgramKompas.ProgramKompas();
+        /// <summary>
+        /// Создание объекта для конструирования детали
+        /// </summary>
+        KompasProgram programKompasClass = 
+            new KompasProgram();
+
+        /// <summary>
+        /// Создание объекта параметров мыши
+        /// </summary>
         private MouseSetting mouseSettingClass =
             new MouseSetting();
+
+        /// <summary>
+        /// Объект для подсказок
+        /// </summary>
         private ToolTip toolTip = new ToolTip();
 
+        /// <summary>
+        /// Инициализация компонентов
+        /// </summary>
         public MouseForm()
         {
             InitializeComponent();
         }
 
-        private void SelectClose(TextBox textBox)
-        {
-            textBox.Clear();
-            textBox.Select();
-        }
-
-        private void ButtonBuild_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Кнопка построить деталь
+        /// </summary>
+        /// <param name="sender">объект</param>
+        /// <param name="e">событие</param>
+        private void ButtonBuildClick(object sender, EventArgs e)
         {
             try
             {
-                programKompasClass.ProgramKompasClassParamMethod(mouseSettingClass);
+                programKompasClass.ProgramKompasClassParamMethod
+                    (mouseSettingClass);
                 programKompasClass.COnstruct();
             }
             catch(Exception)
             {
                 MessageBox.Show("Непредвиденная ошибка");
-            }
-                 
+            }    
         }
 
-        // Валидация всех параметров 
+        /// <summary>
+        /// Тексбокс Длины мыши
+        /// </summary>
+        /// <param name="sender">объект</param>
+        /// <param name="e">событие</param>
         private void TextBoxLengthOfMouseLeave(object sender, EventArgs e)
         {
             try
@@ -54,80 +75,111 @@ namespace MouseMainWindowFormProject
             }
             catch (FormatException)
             {
-                MessageBox.Show("Неправильный формат ввода");
-                SelectClose(_textBoxLengthOfMouse);
+                SelectedCloseTexBox
+                   (_textBoxLengthOfMouse,
+                  "Неверный формат ввода");
             }
-            catch (ProgramKompas.ExceptionFolder.LengthOfMouseException)
+            catch (LengthOfMouseException)
             {
-                MessageBox.Show("Длина мыши должна иметь длину от 100 до 150 милиметров", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                SelectClose(_textBoxLengthOfMouse);
+                SelectedCloseTexBox
+                    (_textBoxLengthOfMouse,
+                   "Длина мыши должна иметь длину от 100 до 150 милиметров");
             }
         }
 
+        /// <summary>
+        /// Тексбокс передней части мыши
+        /// </summary>
+        /// <param name="sender">Объект</param>
+        /// <param name="e">Событие</param>
         private void TextBoxFrontOfTheMouseLeave(object sender, EventArgs e)
         {
             try
             {
                 mouseSettingClass.FrontOfTheMouseProperty =
                     Convert.ToDouble(_textBoxFrontOfTheMouse.Text);
-                _textBoxBackOfTheMouse.Text = Convert.ToString(mouseSettingClass.BackOfTheMouseProperty);
+                _textBoxBackOfTheMouse.Text = Convert.ToString
+                    (mouseSettingClass.BackOfTheMouseProperty);
             }
             catch (FormatException)
             {
-                MessageBox.Show("Неправильный формат ввода");
-                SelectClose(_textBoxFrontOfTheMouse);
+                SelectedCloseTexBox
+                      (_textBoxFrontOfTheMouse,
+                     "Неверный формат ввода");
             }
-            catch (ProgramKompas.ExceptionFolder.FrontOfTheMouseException)
+            catch (FrontOfTheMouseException)
             {
-                MessageBox.Show("Длина передней части мыши не должна превышать 40% и быть меньше 30% от компьютерной мыши", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                SelectClose(_textBoxFrontOfTheMouse);
+                SelectedCloseTexBox
+                    (_textBoxBackOfTheMouse,
+                   "Длина передней части мыши не должна превышать 40% и" +
+                    "быть меньше 30% от компьютерной мыши");
             }
         }
 
+        /// <summary>
+        /// Тексбокс задней части мыши
+        /// </summary>
+        /// <param name="sender">Объект</param>
+        /// <param name="e">Событие</param>
         private void TextBoxBackOfTheMouseLeave(object sender, EventArgs e)
         {
             try
             {
                 mouseSettingClass.BackOfTheMouseProperty =
                     Convert.ToDouble(_textBoxBackOfTheMouse.Text);
-                _textBoxFrontOfTheMouse.Text = Convert.ToString(mouseSettingClass.FrontOfTheMouseProperty);
+                _textBoxFrontOfTheMouse.Text = Convert.ToString
+                    (mouseSettingClass.FrontOfTheMouseProperty);
             }
             catch (FormatException)
             {
-                MessageBox.Show("Неправильный формат ввода");
-                SelectClose(_textBoxBackOfTheMouse);
+                SelectedCloseTexBox
+                     (_textBoxBackOfTheMouse,"Неверный формат ввода");
             }
-            catch (ProgramKompas.ExceptionFolder.BackOfTheMouseException)
+            catch (BackOfTheMouseException)
             {
-                MessageBox.Show("Длина задней части мыши не должна превышать 70% и быть меньше 60% от длины мыши ",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                SelectClose(_textBoxBackOfTheMouse);
+                SelectedCloseTexBox
+                    (_textBoxBackOfTheMouse,
+                   "Длина задней части мыши не должна превышать 70% и" +
+                    " быть меньше 60% от длины мыши ");
             }
         }
 
+        /// <summary>
+        /// тексбокс первого уровня мыши
+        /// </summary>
+        /// <param name="sender">Объект</param>
+        /// <param name="e">Событие</param>
         private void TextBoxHeightFirstLevelOfTheMouseLeave
             (object sender, EventArgs e)
         {
             try
             {
-                mouseSettingClass.TheHeightOfTheFirstLevelOfTheMouseProperty =
-                    Convert.ToDouble(_textBoxTheHeightOfTheFirstLevelOfTheMouse.Text);
+                mouseSettingClass.
+                    TheHeightOfTheFirstLevelOfTheMouseProperty =
+                    Convert.ToDouble
+                    (_textBoxTheHeightOfTheFirstLevelOfTheMouse.Text);
             }
             catch (FormatException)
             {
-                MessageBox.Show("Неправильный формат ввода");
-                SelectClose(_textBoxTheHeightOfTheFirstLevelOfTheMouse);
+                SelectedCloseTexBox(_textBoxTheHeightOfTheFirstLevelOfTheMouse,
+                    "Неверный формат ввода");
             }
-            catch (ProgramKompas.ExceptionFolder.TheHeightOfTheFirstLevelOfTheMouseException)
+            catch (TheHeightOfTheFirstLevelOfTheMouseException)
             {
-                MessageBox.Show("Высота первого уровня не должна привышать 30% и быть меньше 20% от длины компьютеной мыши", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                SelectClose(_textBoxTheHeightOfTheFirstLevelOfTheMouse);
+                SelectedCloseTexBox
+                    (_textBoxTheHeightOfTheFirstLevelOfTheMouse,
+                    "Высота первого уровня не должна привышать 30% и быть" +
+                    "меньше 20% от длины компьютеной мыши");
             }
-
         }
        
-        private void TextBoxHeightOfTheSecondMouseLeave(object sender,
-                    EventArgs e)
+        /// <summary>
+        /// текстбокс второго уровня мыши
+        /// </summary>
+        /// <param name="sender">Объект</param>
+        /// <param name="e">Событие</param>
+        private void TextBoxHeightOfTheSecondMouseLeave
+            (object sender,EventArgs e)
         {
             try
             {
@@ -136,49 +188,93 @@ namespace MouseMainWindowFormProject
             }
             catch (FormatException)
             {
-                MessageBox.Show("Неправильный формат ввода");
-                SelectClose(_textBoxBackOfTheMouse);
+                SelectedCloseTexBox(_textBoxHeightOfTheSecondMouse,
+                    "Неправильный формат ввода");
             }
-            catch (ProgramKompas.ExceptionFolder.ExceptionHeightOfTheSecondMouse)
+            catch (ExceptionHeightOfTheSecondMouse)
             {
-                MessageBox.Show("Второй уровень компьютерной мыши  больше 20% или меньше 10% от компьютерной мыши", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                SelectClose(_textBoxHeightOfTheSecondMouse);
+                SelectedCloseTexBox(_textBoxHeightOfTheSecondMouse, "Второй" +
+                    " уровень компьютерной мыши  больше" +
+                    "20% или меньше 10% от компьютерной мыши");
             }
         }
 
-        //Подсказки при наведении
-        private void TextBoxLengthOfMouseMouseHover(object sender, EventArgs e)
+        /// <summary>
+        /// Метод свойства для вывода сообщения и выделение,удаление
+        /// в текстбоксе информации
+        /// </summary>
+        /// <param name="textBox">Текстбокс</param>
+        /// <param name="message">Сообщение</param>
+        private void SelectedCloseTexBox(TextBox textBox, string message )
         {
-            toolTip.SetToolTip(_textBoxLengthOfMouse, "Длина мышки должна быть" +
-                " \nв интервале 100...150");
+            MessageBox.Show(message, "Error",
+                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+            textBox.Clear();
+            textBox.Select();
         }
 
-        private void TextBoxFrontOfTheMouseHover(object sender, EventArgs e)
+        /// <summary>
+        /// Подсказка на длине
+        /// </summary>
+        /// <param name="sender">Объект</param>
+        /// <param name="e">Событие</param>
+        private void TextBoxLengthOfMouseMouseHover
+            (object sender, EventArgs e)
         {
-            toolTip.SetToolTip(_textBoxFrontOfTheMouse, "Передняя часть не должна\n" +
-                " превышать значение 40%\n или меньше 30% от длины мыши");
+            toolTip.SetToolTip(_textBoxLengthOfMouse, "Длина мышки" +
+                " должна быть \nв интервале 100...150");
         }
 
-        private void TextBoxBackOfTheMouseHover(object sender, EventArgs e)
+        /// <summary>
+        /// Подсказка для передней части
+        /// </summary>
+        /// <param name="sender">Объект</param>
+        /// <param name="e">Событие</param>
+        private void TextBoxFrontOfTheMouseHover
+            (object sender, EventArgs e)
         {
-            toolTip.SetToolTip(_textBoxBackOfTheMouse, "Длина задней части не должна\n" +
-                " превышать значение 70%\n или быть меньше 60% от длины мышки ");
+            toolTip.SetToolTip(_textBoxFrontOfTheMouse, "Передняя часть "+
+                "не должна\n превышать значение 40%\n или меньше 30% от"+
+                " длины мыши");
         }
 
-        private void TextBoxTheHeightOfTheFirstLevelOfTheMouseHover(object sender, EventArgs e)
+        /// <summary>
+        /// Подсказка для задней части
+        /// </summary>
+        /// <param name="sender">Объект</param>
+        /// <param name="e">Событие</param>
+        private void TextBoxBackOfTheMouseHover
+            (object sender, EventArgs e)
+        {
+            toolTip.SetToolTip(_textBoxBackOfTheMouse, "Длина задней части" +
+                "не должна\n превышать значение 70%\n или быть меньше 60%" +
+                " от длины мышки ");
+        }
+
+        /// <summary>
+        /// Подсказка для первого уровня мыши
+        /// </summary>
+        /// <param name="sender">Объект</param>
+        /// <param name="e">Событие</param>
+        private void TextBoxTheHeightOfTheFirstLevelOfTheMouseHover
+            (object sender, EventArgs e)
         {
             toolTip.SetToolTip(_textBoxTheHeightOfTheFirstLevelOfTheMouse,
                 "Первый уровень не должен превышать значение 30%\n " +
                 "и быть меньше 20% от длины мыши");
         }
 
-        private void TextBoxHeightOfTheSecondMouseHover(object sender, EventArgs e)
+        /// <summary>
+        /// Подсказка для второго уровня мыши
+        /// </summary>
+        /// <param name="sender">Объект</param>
+        /// <param name="e">Событие</param>
+        private void TextBoxHeightOfTheSecondMouseHover
+            (object sender, EventArgs e)
         {
             toolTip.SetToolTip(_textBoxHeightOfTheSecondMouse,
                "Первый уровень не должен превышать значение 20%\n " +
                "и быть меньше 10% от длины мыши");
-        }
-
-       
+        }       
     }
 }

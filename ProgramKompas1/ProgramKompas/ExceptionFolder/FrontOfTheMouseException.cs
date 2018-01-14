@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProgramKompas.ExceptionFolder
 {
-    public class FrontOfTheMouseException :Exception
+    /// <summary>
+    /// Перехват исключения передней части компьютерной мыши если больше 40%
+    /// или меньше 30% от длины мыши
+    /// </summary>
+    public class FrontOfTheMouseException : ApplicationException
     {
     }
 }

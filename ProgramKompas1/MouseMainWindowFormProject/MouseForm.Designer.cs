@@ -50,7 +50,7 @@
             this._buttonBuild.TabIndex = 6;
             this._buttonBuild.Text = "Построить";
             this._buttonBuild.UseVisualStyleBackColor = true;
-            this._buttonBuild.Click += new System.EventHandler(this.ButtonBuild_Click);
+            this._buttonBuild.Click += new System.EventHandler(this.ButtonBuildClick);
             // 
             // _textBoxFrontOfTheMouse
             // 

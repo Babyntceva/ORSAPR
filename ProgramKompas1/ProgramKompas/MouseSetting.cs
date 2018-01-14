@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProgramKompas.ExceptionFolder;
 
-namespace MouseSettings.cs
+namespace ProgramKompas
 {
+    /// <summary>
+    /// Параметры мыши
+    /// </summary>
     public struct MouseSetting
     {
         /// <summary>
@@ -33,26 +37,24 @@ namespace MouseSettings.cs
         /// </summary>
         private double _heightOfTheSecondMouse;
 
-      /// <summary>
-      /// cвойства для передней части мыши
-      /// </summary>
+        /// <summary>
+        /// cвойства для передней части мыши
+        /// </summary>
         public double FrontOfTheMouseProperty
         {
             get
             {
-
                 if (_backOfTheMouse > 0)
                 {
                     return _frontOfTheMouse = _lengthOfMouse - _backOfTheMouse;
                 }
                 return _frontOfTheMouse;
             }
-               
             set
             {
                 if (value > _lengthOfMouse * 0.4 || value < _lengthOfMouse * 0.3)
                 {
-                    throw new ProgramKompas.ExceptionFolder.FrontOfTheMouseException();
+                    throw new FrontOfTheMouseException();
                 }
                 _frontOfTheMouse = value;
             }
@@ -64,7 +66,6 @@ namespace MouseSettings.cs
         public double BackOfTheMouseProperty
         {
             get
-
             {
                 if (_frontOfTheMouse > 0)
                 {
@@ -72,13 +73,11 @@ namespace MouseSettings.cs
                 }
                 return _backOfTheMouse;
             }
-
             set
             {
                 if (value > _lengthOfMouse * 0.7 || value < _lengthOfMouse * 0.6)
                 {
-                    throw new ProgramKompas.ExceptionFolder.BackOfTheMouseException();
-
+                    throw new BackOfTheMouseException();
                 }
                 _backOfTheMouse = value;
             }
@@ -96,7 +95,9 @@ namespace MouseSettings.cs
             set
             {
                 if (value < 100 || value > 150)
-                    throw new ProgramKompas.ExceptionFolder.LengthOfMouseException();                  
+                {
+                    throw new LengthOfMouseException();
+                }                
                 _lengthOfMouse = value;
             }
         }
@@ -114,9 +115,8 @@ namespace MouseSettings.cs
             {
                 if (value > _lengthOfMouse * 0.3 || value < _lengthOfMouse * 0.2)
                 {
-                    throw new ProgramKompas.ExceptionFolder.TheHeightOfTheFirstLevelOfTheMouseException();
+                    throw new TheHeightOfTheFirstLevelOfTheMouseException();
                 }
-
                 _theHeightOfTheFirstLevelOfTheMouse = value;
             }
         }
@@ -127,16 +127,15 @@ namespace MouseSettings.cs
         public double HeightOfTheSecondMouseProperty
         {
             get
-            {
-               
+            { 
                 return _heightOfTheSecondMouse;
             }
-
             set
             {
-       
-                if (value > _lengthOfMouse * 0.2 || value< _lengthOfMouse * 0.1)
-                    throw new ProgramKompas.ExceptionFolder.ExceptionHeightOfTheSecondMouse();
+                if (value > _lengthOfMouse * 0.2 || value < _lengthOfMouse * 0.1)
+                {
+                    throw new ExceptionHeightOfTheSecondMouse();
+                }
                 _heightOfTheSecondMouse = value;
             }
         }
